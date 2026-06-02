@@ -3,7 +3,7 @@ package ecodefense;
 import java.util.ArrayList;
 
 /**
- * EmergencyKit — Concrete Class implementing Inventory
+ * EmergencyKit - Concrete Class implementing Inventory
  *
  * Tracks vital items needed to withstand natural disasters.
  */
@@ -29,7 +29,7 @@ public class EmergencyKit implements Inventory {
         String cleanItem = item.trim().toLowerCase();
         if (!items.contains(cleanItem)) {
             items.add(cleanItem);
-            System.out.println("🎒 [KIT] Added item: " + item);
+            System.out.println(" [KIT] Added item: " + item);
         }
         
         // Contextually update structural flags if matched
@@ -50,14 +50,14 @@ public class EmergencyKit implements Inventory {
         String cleanItem = item.trim().toLowerCase();
         if (cleanItem.equals("water")) {
             this.waterSupplyDays += daysRation;
-            System.out.println("💧 [KIT] Rations updated: Added " + daysRation + " day(s) of Water supply.");
+            System.out.println(" [KIT] Rations updated: Added " + daysRation + " day(s) of Water supply.");
             
             if (!items.contains("water")) {
                 items.add("water");
             }
         } else {
             // Fallback for non-water items with quantities
-            System.out.println("🎒 [KIT] Added " + daysRation + "x units of " + item);
+            System.out.println(" [KIT] Added " + daysRation + "x units of " + item);
             if (!items.contains(cleanItem)) {
                 items.add(cleanItem);
             }
@@ -82,11 +82,11 @@ public class EmergencyKit implements Inventory {
      * @throws IncompleteKitException if the inventory is unsafe.
      */
     public void ventureIntoScenario(String disasterType) throws IncompleteKitException {
-        System.out.println("\n🚀 Attempting to enter " + disasterType.toUpperCase() + " Simulation Module...");
+        System.out.println("\n Attempting to enter " + disasterType.toUpperCase() + " Simulation Module...");
         
         if (!checkCompleteness()) {
             int missingWater = Math.max(0, 3 - waterSupplyDays);
-            String reason = "🚨 PREPAREDNESS FAILURE! You cannot enter the " + disasterType + " scenario safely.\n"
+            String reason = " PREPAREDNESS FAILURE! You cannot enter the " + disasterType + " scenario safely.\n"
                     + "    -> Reason: Current kit configuration is insufficient.\n"
                     + "    -> Missing Requirements: " 
                     + (!hasFirstAid ? "[First Aid Kit] " : "")
@@ -96,17 +96,17 @@ public class EmergencyKit implements Inventory {
             throw new IncompleteKitException(reason);
         }
         
-        System.out.println("🛡️  ACCESS GRANTED. Your kit is secure. Proceeding safely into the " + disasterType + " module!");
+        System.out.println("  ACCESS GRANTED. Your kit is secure. Proceeding safely into the " + disasterType + " module!");
     }
 
     //  Status Visualizer
     public void showKitStatus() {
-        System.out.println("\n📦 CURRENT EMERGENCY KIT INVENTORY STATUS:");
+        System.out.println("\n CURRENT EMERGENCY KIT INVENTORY STATUS:");
         System.out.println("=".repeat(50));
         System.out.println("  • Registered Items : " + (items.isEmpty() ? "Empty" : items));
         System.out.println("  • Water Reserves    : " + waterSupplyDays + " / 3 Days Minimum");
-        System.out.println("  • First Aid Status  : " + (hasFirstAid ? "🟢 EQUIPPED" : "🔴 MISSING"));
-        System.out.println("  • Safety Rating     : " + (checkCompleteness() ? "✅ READY FOR ACTION" : "⚠️  INCOMPLETE"));
+        System.out.println("  • First Aid Status  : " + (hasFirstAid ? " EQUIPPED" : " MISSING"));
+        System.out.println("  • Safety Rating     : " + (checkCompleteness() ? " READY FOR ACTION" : "  INCOMPLETE"));
         System.out.println("=".repeat(50));
     }
 
