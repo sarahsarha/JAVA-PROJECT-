@@ -6,27 +6,22 @@ import java.util.ArrayList;
  * EmergencyKit — Concrete Class implementing Inventory
  *
  * Tracks vital items needed to withstand natural disasters.
- * Demonstrates:
- * ✅ INTERFACE IMPLEMENTATION (Inventory)
- * ✅ METHOD OVERRIDING (addItem(String))
- * ✅ METHOD OVERLOADING (addItem(String, int))
- * ✅ CUSTOM EXCEPTION INTEGRATION (IncompleteKitException)
  */
 public class EmergencyKit implements Inventory {
 
-    // ─── Attributes ───────────────────────────────────────────────────────────
+    //  Attributes 
     private ArrayList<String> items;
     private int waterSupplyDays;
     private boolean hasFirstAid;
 
-    // ─── Constructor ──────────────────────────────────────────────────────────
+    //  Constructor 
     public EmergencyKit() {
         this.items = new ArrayList<>();
         this.waterSupplyDays = 0;
         this.hasFirstAid = false;
     }
 
-    // ─── Method Overriding (Interface Contract) ───────────────────────────────
+    //  Method Overriding (Interface Contract)
     @Override
     public void addItem(String item) {
         if (item == null || item.trim().isEmpty()) return;
@@ -43,7 +38,7 @@ public class EmergencyKit implements Inventory {
         }
     }
 
-    // ─── Method Overloading (Same name, different parameters) ─────────────────
+    //  Method Overloading (Same name, different parameters) 
     /**
      * Overloaded method to add water rations to the system.
      * * @param item Must be "water" to count towards waterSupplyDays.
@@ -69,7 +64,7 @@ public class EmergencyKit implements Inventory {
         }
     }
 
-    // ─── Interface Completeness Check ─────────────────────────────────────────
+    //  Interface Completeness Check 
     @Override
     public boolean checkCompleteness() {
         // A kit is considered contextually safe if it has water for at least 3 days,
@@ -80,7 +75,7 @@ public class EmergencyKit implements Inventory {
         return hasFirstAid && hasWaterMinimum && hasUtility;
     }
 
-    // ─── Simulation Trigger (Launches the Exception) ──────────────────────────
+    // Simulation Trigger (Launches the Exception)
     /**
      * Validates safety preparedness before letting a user enter a disaster zone quiz.
      * * @param disasterType The target crisis scenario.
@@ -104,7 +99,7 @@ public class EmergencyKit implements Inventory {
         System.out.println("🛡️  ACCESS GRANTED. Your kit is secure. Proceeding safely into the " + disasterType + " module!");
     }
 
-    // ─── Status Visualizer ────────────────────────────────────────────────────
+    //  Status Visualizer
     public void showKitStatus() {
         System.out.println("\n📦 CURRENT EMERGENCY KIT INVENTORY STATUS:");
         System.out.println("=".repeat(50));
@@ -115,7 +110,7 @@ public class EmergencyKit implements Inventory {
         System.out.println("=".repeat(50));
     }
 
-    // ─── Getters ──────────────────────────────────────────────────────────────
+    // Getters
     public ArrayList<String> getItems()      { return items; }
     public int getWaterSupplyDays()          { return waterSupplyDays; }
     public boolean isHasFirstAid()           { return hasFirstAid; }
