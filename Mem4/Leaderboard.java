@@ -1,4 +1,4 @@
-package leaderboard;
+package ecodefense;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
