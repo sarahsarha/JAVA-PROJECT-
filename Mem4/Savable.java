@@ -1,4 +1,4 @@
-package leaderboard;
+package ecodefense;
 
 //Interface to handle data persistence for the application.
 
