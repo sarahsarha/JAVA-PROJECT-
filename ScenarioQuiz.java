@@ -1,7 +1,7 @@
 /**
  * Class      : ScenarioQuiz
- * Creator    : Member 3
- * Tester     : Member 3
+ * Creator    : Annie
+ * Tester     : Najla
  * Description: Implements GameLogic. Manages 20 disaster-preparedness quiz questions,
  *              a survival countdown timer, score tracking and motivational feedback.
  */
