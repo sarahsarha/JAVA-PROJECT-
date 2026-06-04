@@ -1,0 +1,5 @@
+Abu,50
+Izz,60
+Ahmad,30
+Abby,60
+Abu,60
