@@ -1,0 +1,3 @@
+Abu,50
+Izz,60
+Ahmad,30
