@@ -1,5 +1,6 @@
+package ecodefense;
 /**
- * Class      : ScenarioQuiz
+ * Class      : ScenarioQuiz 
  * Creator    : Annie
  * Tester     : Najla
  * Description: Implements GameLogic. Manages 20 disaster-preparedness quiz questions,
@@ -389,12 +390,12 @@ public class ScenarioQuiz implements GameLogic {
         questionLabel.setVerticalAlignment(SwingConstants.TOP);
 
         JPanel qTop = new JPanel();
-    qTop.setLayout(new BoxLayout(qTop, BoxLayout.Y_AXIS));
-    qTop.setBackground(BG_CARD);
-    qTop.add(typeTag);
-    qTop.add(Box.createVerticalStrut(6));
-    qTop.add(questionLabel);
-    card.add(qTop, BorderLayout.NORTH);
+        qTop.setLayout(new BoxLayout(qTop, BoxLayout.Y_AXIS));
+        qTop.setBackground(BG_CARD);
+        qTop.add(typeTag);
+        qTop.add(Box.createVerticalStrut(6));
+        qTop.add(questionLabel);
+        card.add(qTop, BorderLayout.NORTH);
 
         optionsPanel = new JPanel();
         optionsPanel.setLayout(new BoxLayout(optionsPanel, BoxLayout.Y_AXIS));
@@ -617,6 +618,12 @@ public class ScenarioQuiz implements GameLogic {
         frame.add(wrapper, BorderLayout.CENTER);
         frame.revalidate();
         frame.repaint();
+
+        Leaderboard leaderboard = new Leaderboard("leaderboard.txt");
+        leaderboard.loadFromFile("leaderboard.txt");
+        leaderboard.addScore(playerName, currentScore);
+        leaderboard.saveToFile("leaderboard.txt");
+        leaderboard.displayTopPlayers();
     }
 
     // ── Helpers ──────────────────────────────────────────────────

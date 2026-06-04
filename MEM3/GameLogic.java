@@ -1,9 +1,11 @@
+package ecodefense;
 /**
  * Interface  : GameLogic
  * Creator    : Member 3
  * Tester     : Member 3
  * Description: Defines the core game logic contract for the survival quiz simulation.
  */
+
 public interface GameLogic {
 
     // Starts a countdown timer with given seconds
